@@ -36,6 +36,10 @@ Please unit test and follow the [Google Python Style Guide](http://google.github
 
 Open Source
 ----------------------------------------------------------------------------------------------------
-This application's source is released under the [MIT License](https://opensource.org/licenses/MIT) and uses [Flask](http://flask.pocoo.org/) which is also released under the [BSD license](http://flask.pocoo.org/docs/1.0/license/).
+This application's source is released under the [MIT License](https://opensource.org/licenses/MIT). Note that the predictions are covered under [CC BY-NC 3.0 US](https://creativecommons.org/licenses/by-nc/3.0/us/). The following libraries are used:
 
-Note that the predictions are covered under [CC BY-NC 3.0 US](https://creativecommons.org/licenses/by-nc/3.0/us/).
+ - [Flask](http://flask.pocoo.org/) used under the [BSD License](http://flask.pocoo.org/docs/1.0/license/).
+ - [itsdangerous](https://pythonhosted.org/itsdangerous/) used under the [BSD license](https://github.com/pallets/itsdangerous/blob/master/LICENSE.rst).
+ - [Jinja2](http://jinja.pocoo.org/docs/2.10/) used under the [BSD license](https://github.com/pallets/jinja/blob/master/LICENSE).
+ - [MarkupSafe](https://palletsprojects.com/p/markupsafe/) used under the [BSD license](https://palletsprojects.com/license/).
+ - [Werkzeug](https://www.palletsprojects.com/p/werkzeug/) used under the [BSD license](https://www.palletsprojects.com/license/).
