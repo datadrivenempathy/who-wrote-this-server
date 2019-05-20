@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="static/css/app.css" />
+{% endblock %}
+
+{% block contents %}
+<div class="app">
+    <div id="description">
+        <p>How do different news agencies cover topics? Does CNN cover immigration differently than Fox? Does Breitbart discuss Trump differently than the New York Times?</p>
+
+        <p>Using the method described in <a href="">Machine Learning Techniques for Detecting Identifying Linguistic Patterns in the News Media</a> by <a href="https://gleap.org">A Samuel Pottinger</a>, a model that can predict which news agency wrote which article can also find "exemplar" articles, allowing one to glimpse across the news media landscape by searching for articles that are "prototypical" of their publishing agency. If you type "climate", for example, this machine learning application will find the most CNN-like article about climate change posted by CNN. Try Russia, Immigration, Brexit.</p>
+
+        <p>Articles are from January 29, 2019 to May 4, 2019.  Note that articles are linked below and Data Driven Empathy LLC is not responsible for, affilitted with, or endorsing that linked content or its publishers.</p>
+    </div>
+    <div id="input-bar">
+        In articles whose title includes <input id="search-box" type="text" placeholder="anything (type here)"></input>:
+    </div>
+    <div id="display-area">
+    </div>
+    <div id="loading-indicator">
+        Loading...
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/js/d3.v5.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/static/js/app.js"></script>
+{% endblock %}

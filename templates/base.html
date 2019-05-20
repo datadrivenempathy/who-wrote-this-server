@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Who Wrote This? - {{ page }}</title>
+        <link rel="stylesheet" type="text/css" href="static/css/base.css" />
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="header">
+            <div class="title">Who Wrote This?</div>
+            <div class="links">
+
+                {% if page == "app" %}
+                Application
+                {% else %}
+                <a href="/">Application</a>
+                {% endif %}
+
+                /
+
+                {% if page == "data" %}
+                Data
+                {% else %}
+                <a href="/data">Data</a>
+                {% endif %}
+
+                /
+
+                {% if page == "paper" %}
+                Paper
+                {% else %}
+                <a href="/data">Paper</a>
+                {% endif %}
+
+                /
+
+                {% if page == "code" %}
+                Code
+                {% else %}
+                <a href="/code">Code</a>
+                {% endif %}
+
+                /
+
+                <a href="/data">Privacy and Terms</a>
+
+            </div>
+        </div>
+        <div class="contents">
+            {% block contents %}
+            {% endblock %}
+        </div>
+        <div class="footer">
+            (c) 2019 <a href="https://www.datadrivenempathy.com/">Data Driven Empathy LLC</a>
+        </div>
+    </body>
+</html>
