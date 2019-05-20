@@ -91,4 +91,6 @@ def create_default_app():
 
 
 application = create_default_app()
-application.run()
+
+if __name__ == '__main__':
+    application.run()
