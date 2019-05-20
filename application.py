@@ -78,13 +78,18 @@ def create_app(app, records_keep):
     return app
 
 
-def main():
-    """Setup and run this application using defaults."""
+def create_default_app():
+    """Setup this application using defaults.
+
+    Returns:
+        The flask.Flask application.
+    """
     records_keep = model.load_keep_from_disk()
     app = create_app(flask.Flask(__name__), records_keep)
     app.debug = True
-    app.run()
+    return app
 
 
 if __name__ == '__main__':
-    main()
+    application = create_default_app()
+    application.run()
