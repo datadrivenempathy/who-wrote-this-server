@@ -37,3 +37,5 @@ Please unit test and follow the [Google Python Style Guide](http://google.github
 Open Source
 ----------------------------------------------------------------------------------------------------
 This application's source is released under the [MIT License](https://opensource.org/licenses/MIT) and uses [Flask](http://flask.pocoo.org/) which is also released under the [BSD license](http://flask.pocoo.org/docs/1.0/license/).
+
+Note that the predictions are covered under [CC BY-NC 3.0 US](https://creativecommons.org/licenses/by-nc/3.0/us/).
