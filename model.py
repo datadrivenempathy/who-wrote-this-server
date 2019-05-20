@@ -215,7 +215,7 @@ def load_keep_from_disk(path_to_records='predictions.csv'):
     Returns:
         Newly created ArticleKeep.
     """
-    with open(path_to_records, 'r') as f:
+    with open(path_to_records, 'r', encoding='utf-8-sig') as f:
         record_dicts = list(csv.DictReader(f))
 
     return load_keep_from_dicts(record_dicts)
