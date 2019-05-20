@@ -86,7 +86,6 @@ def create_default_app():
     """
     records_keep = model.load_keep_from_disk()
     app = create_app(flask.Flask(__name__), records_keep)
-    app.debug = True
     return app
 
 
