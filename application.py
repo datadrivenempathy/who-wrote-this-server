@@ -46,6 +46,33 @@ def create_app(app, records_keep):
         """
         return flask.render_template('app.html', page='app')
 
+    @app.route('/code')
+    def code():
+        """Render the page about code.
+
+        Returns:
+            String rendered code page.
+        """
+        return flask.render_template('code.html', page='code')
+
+    @app.route('/data')
+    def data():
+        """Render the page about data.
+
+        Returns:
+            String rendered data page.
+        """
+        return flask.render_template('data.html', page='data')
+
+    @app.route('/paper')
+    def paper():
+        """Render the page about the paper.
+
+        Returns:
+            String rendered paper page.
+        """
+        return flask.render_template('paper.html', page='paper')
+
     @app.route('/prototypical.json')
     def get_prototypical():
         """Query for the prototypical articles across all topics.
