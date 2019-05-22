@@ -46,7 +46,7 @@ Note that this is in a series of related projects as linked:
 
 Open Source
 ----------------------------------------------------------------------------------------------------
-This application's source is released under the [MIT License](https://opensource.org/licenses/MIT). Note that the predictions are covered under [CC BY-NC 3.0 US](https://creativecommons.org/licenses/by-nc/3.0/us/). The following libraries are used:
+This application's source is released under the [MIT License](https://opensource.org/licenses/MIT). Note that the predictions are covered under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). The following libraries are used:
 
  - [Flask](http://flask.pocoo.org/) used under the [BSD License](http://flask.pocoo.org/docs/1.0/license/).
  - [itsdangerous](https://pythonhosted.org/itsdangerous/) used under the [BSD license](https://github.com/pallets/itsdangerous/blob/master/LICENSE.rst).
