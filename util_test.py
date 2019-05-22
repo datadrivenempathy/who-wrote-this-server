@@ -40,4 +40,3 @@ class UtilTest(unittest.TestCase):
         article = model.ArticleRecord('test tile', '', 'Wall Street Journal', 0.75)
         url = util.determine_search_link(article)
         self.assertTrue('test' in url)
-        self.assertTrue('Wall+Street+Journal' in url)

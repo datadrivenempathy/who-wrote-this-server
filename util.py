@@ -53,4 +53,10 @@ def determine_search_link(article):
     """
     query_source = article.get_source().replace(' ', '+')
     query_title = '+'.join(article.get_title_words(dedupe=False))
-    return 'https://duckduckgo.com/?q=%s+%s' % (query_source, query_title)
+
+    if article.get_source() == 'Vox':
+        return 'https://www.vox.com/search?q=%s' % query_title
+    elif article.get_source() == 'Drudge Report':
+        return 'http://www.drudgereportarchives.com/dsp/search.htm?searchFor=%s' % query_title
+    else:
+        return 'https://duckduckgo.com/?q=%s+%s' % (query_source, query_title)
