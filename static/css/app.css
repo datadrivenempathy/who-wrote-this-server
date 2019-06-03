@@ -1,9 +1,25 @@
 .app #description {
     border-bottom: 1px dotted #333;
-    font-size: 14px;
+    font-size: 13px;
     padding-top: 8px;
     padding-bottom: 20px;
     margin-bottom: 50px;
+    color: #888;
+}
+
+.app #description .title {
+    color: #333;
+    font-size: 15px;
+}
+
+.app #description a {
+    color: #888;
+    text-decoration: underline;
+}
+
+.app #description a:hover {
+    color: #0000C0;
+    text-decoration: underline;
 }
 
 .app #display-area {

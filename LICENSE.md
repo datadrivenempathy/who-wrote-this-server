@@ -22,7 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Predictions.csv
 ----------------------------------------------------------------------------------------------------
 
-Note that `predictions.csv` is covered under a separate license:
+Note that `predictions.csv` and the HTML files are covered under a separate license:
 
 Creative Commons Attribution-NonCommercial 4.0 International Public License
 

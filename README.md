@@ -12,7 +12,13 @@ This tiny web application uses an [inverted index](), allowing users to query a 
 
 Environment Setup
 ----------------------------------------------------------------------------------------------------
-This application requires Python 3 and pip. Other dependencies can be installed via `$ pip install -r requirements.txt`.
+This application requires Python 3 and pip. Other dependencies can be installed via `$ pip install -r requirements.txt`. If using telemetry, provide the following env vars:
+
+ - `TELEMETRY_DB_URL`
+ - `TELEMETRY_DB_USERNAME`
+ - `TELEMETRY_DB_PASSWORD`
+ - `TELEMETRY_DB_NAME`
+ - `TELEMETRY_DB_PORT`
 
 <br>
 
@@ -46,10 +52,11 @@ Note that this is in a series of related projects as linked:
 
 Open Source
 ----------------------------------------------------------------------------------------------------
-This application's source is released under the [MIT License](https://opensource.org/licenses/MIT). Note that the predictions are covered under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). The following libraries are used:
+This application's Python and JavaScript source is released under the [MIT License](https://opensource.org/licenses/MIT). All other contents including the `predictions.csv` and HTML files are released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). The following libraries are used:
 
  - [Flask](http://flask.pocoo.org/) used under the [BSD License](http://flask.pocoo.org/docs/1.0/license/).
  - [itsdangerous](https://pythonhosted.org/itsdangerous/) used under the [BSD license](https://github.com/pallets/itsdangerous/blob/master/LICENSE.rst).
  - [Jinja2](http://jinja.pocoo.org/docs/2.10/) used under the [BSD license](https://github.com/pallets/jinja/blob/master/LICENSE).
  - [MarkupSafe](https://palletsprojects.com/p/markupsafe/) used under the [BSD license](https://palletsprojects.com/license/).
+ - [pg8000](https://github.com/tlocke/pg8000) used under the [BSD license](https://github.com/tlocke/pg8000/blob/master/LICENSE).
  - [Werkzeug](https://www.palletsprojects.com/p/werkzeug/) used under the [BSD license](https://www.palletsprojects.com/license/).

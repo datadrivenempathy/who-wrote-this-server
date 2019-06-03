@@ -4,7 +4,7 @@ body {
     margin-right: auto;
     font-size: 13px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     color: #333;
 }
 
@@ -16,6 +16,26 @@ a {
 a:hover {
     color: #0000C0;
     text-decoration: underline;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table, th, td {
+  border: 1px solid #999;
+  padding: 5px;
+}
+
+table, th {
+    color: #777;
+}
+
+table, td {
+    color: #999;
 }
 
 .footer {
@@ -46,4 +66,29 @@ a:hover {
 
 .regular-content {
     font-size: 14px;
+}
+
+.section {
+    margin-bottom: 35px;
+}
+
+.section .title {
+    font-size: 17px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.section .contents {
+    font-size: 13px;
+    color: #888;
+}
+
+.section .contents a {
+    color: #888;
+    text-decoration: underline;
+}
+
+.section .contents a:hover {
+    color: #0000C0;
+    text-decoration: underline;
 }

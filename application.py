@@ -20,22 +20,41 @@ OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 import json
+import os
 
 import flask
+import pg8000
 
 import model
+import telemetry
 import util
 
 
-def create_app(app, records_keep):
+def create_app(app, records_keep, reporter):
     """Create a new exemplar exploration application.
 
     Args:
         app: The flask.Flask application into which endpoints should be registered.
         records_keep: The records to be served by this application.
+        reporter: Optional telemetry.UsageReporter with with to report usage information. If None,
+            telemetry is not reported.
     Return:
         The flask.Flask applicatino after registering endpoints.
     """
+
+    def report_maybe(page, query):
+        """Report telemetry if reporter is given.
+
+        Args:
+            page: String page name.
+            query: String query or empty string if not applicable.
+        """
+        if reporter == None:
+            return
+
+        ip_address = flask.request.remote_addr
+        user_agent = flask.request.headers.get('User-Agent')
+        reporter.report_usage(ip_address, user_agent, page, query)
 
     @app.route('/')
     def home():
@@ -44,6 +63,7 @@ def create_app(app, records_keep):
         Returns:
             String rendered app page.
         """
+        report_maybe('home', '')
         return flask.render_template('app.html', page='app')
 
     @app.route('/code')
@@ -53,6 +73,7 @@ def create_app(app, records_keep):
         Returns:
             String rendered code page.
         """
+        report_maybe('code', '')
         return flask.render_template('code.html', page='code')
 
     @app.route('/data')
@@ -62,6 +83,7 @@ def create_app(app, records_keep):
         Returns:
             String rendered data page.
         """
+        report_maybe('data', '')
         return flask.render_template('data.html', page='data')
 
     @app.route('/paper')
@@ -71,6 +93,7 @@ def create_app(app, records_keep):
         Returns:
             String rendered paper page.
         """
+        report_maybe('paper', '')
         return flask.render_template('paper.html', page='paper')
 
     @app.route('/prototypical.json')
@@ -80,6 +103,7 @@ def create_app(app, records_keep):
         Returns:
             JSON listing of prototypical records.
         """
+        report_maybe('prototypical', '')
         records = records_keep.get_prototypical()
         records_serial = list(sorted(
             map(model.serialize_record_to_dict, records),
@@ -94,7 +118,9 @@ def create_app(app, records_keep):
         Returns:
             JSON listing of prototypical records for the given topic.
         """
-        keywords = util.get_words(flask.request.args.get('search'))
+        query_string = flask.request.args.get('search')
+        keywords = util.get_words(query_string)
+        report_maybe('query', query_string)
         records = records_keep.query(keywords)
         records_serial = list(sorted(
             map(model.serialize_record_to_dict, records),
@@ -105,6 +131,35 @@ def create_app(app, records_keep):
     return app
 
 
+def create_connection_generator(db_url, username, password, db_name, db_port):
+    """Create a new closure over the given parameters to generate postgres connections.
+
+    Args:
+        db_url: The string hostname of the database.
+        password: The string password of the database.
+        db_name: The database name.
+        db_port: The string or integer db port.
+    Returns:
+        Function which, taking no paramters, will return a new database connection.
+    """
+    def connect():
+        """Inner closure.
+
+        Returns:
+            New DB API v2 compliant connection.
+        """
+        return pg8000.connect(
+            host=db_url,
+            user=username,
+            password=password,
+            port=int(db_port),
+            database=db_name,
+            ssl=True
+        )
+
+    return connect
+
+
 def create_default_app():
     """Setup this application using defaults.
 
@@ -112,7 +167,28 @@ def create_default_app():
         The flask.Flask application.
     """
     records_keep = model.load_keep_from_disk()
-    app = create_app(flask.Flask(__name__), records_keep)
+
+    reporter = None
+    if 'TELEMETRY_DB_URL' in os.environ:
+        db_url = os.environ['TELEMETRY_DB_URL']
+        username = os.environ['TELEMETRY_DB_USERNAME']
+        password = os.environ['TELEMETRY_DB_PASSWORD']
+        db_name = os.environ['TELEMETRY_DB_NAME']
+        db_port = os.environ['TELEMETRY_DB_PORT']
+        connection_generator = create_connection_generator(
+            db_url,
+            username,
+            password,
+            db_name,
+            db_port
+        )
+
+        connection = connection_generator()
+        connection.close()
+
+        reporter = telemetry.UsageReporter(connection_generator)
+
+    app = create_app(flask.Flask(__name__), records_keep, reporter)
     return app
 
 
