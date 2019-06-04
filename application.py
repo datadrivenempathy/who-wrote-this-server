@@ -86,6 +86,26 @@ def create_app(app, records_keep, reporter):
         report_maybe('data', '')
         return flask.render_template('data.html', page='data')
 
+    @app.route('/privacy')
+    def privacy():
+        """Render the page about privacy.
+
+        Returns:
+            String rendered data page.
+        """
+        report_maybe('privacy', '')
+        return flask.render_template('privacy.html', page='privacy')
+
+    @app.route('/terms')
+    def terms():
+        """Render the page about terms.
+
+        Returns:
+            String rendered data page.
+        """
+        report_maybe('terms', '')
+        return flask.render_template('terms.html', page='terms')
+
     @app.route('/paper')
     def paper():
         """Render the page about the paper.
