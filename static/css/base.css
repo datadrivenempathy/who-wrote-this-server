@@ -90,6 +90,10 @@ table, td {
     margin-bottom: 35px;
 }
 
+.section.nopad {
+    margin-bottom: 5;
+}
+
 .section .title {
     font-size: 17px;
     color: #000000;
