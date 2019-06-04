@@ -52,7 +52,7 @@ Note that this is in a series of related projects as linked:
 
 Open Source
 ----------------------------------------------------------------------------------------------------
-This application's Python and JavaScript source is released under the [MIT License](https://opensource.org/licenses/MIT). All other contents including the `predictions.csv` and HTML files are released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). The following libraries are used:
+This application's Python and JavaScript source is released under the [MIT License](https://opensource.org/licenses/MIT). All other contents including the `predictions.csv`, `who_wrote_this_data.zip`, and HTML files are released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). The following libraries are used:
 
  - [Flask](http://flask.pocoo.org/) used under the [BSD License](http://flask.pocoo.org/docs/1.0/license/).
  - [itsdangerous](https://pythonhosted.org/itsdangerous/) used under the [BSD license](https://github.com/pallets/itsdangerous/blob/master/LICENSE.rst).
