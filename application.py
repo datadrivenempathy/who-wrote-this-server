@@ -86,6 +86,16 @@ def create_app(app, records_keep, reporter):
         report_maybe('data', '')
         return flask.render_template('data.html', page='data')
 
+    @app.route('/download')
+    def download():
+        """Redirect to the download.
+
+        Returns:
+            Redirect to the sqlite download.
+        """
+        report_maybe('download', '')
+        return flask.redirect('/static/zip/who_wrote_this_data.zip')
+
     @app.route('/privacy')
     def privacy():
         """Render the page about privacy.
