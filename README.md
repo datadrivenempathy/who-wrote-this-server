@@ -60,3 +60,5 @@ This application's Python and JavaScript source is released under the [MIT Licen
  - [MarkupSafe](https://palletsprojects.com/p/markupsafe/) used under the [BSD license](https://palletsprojects.com/license/).
  - [pg8000](https://github.com/tlocke/pg8000) used under the [BSD license](https://github.com/tlocke/pg8000/blob/master/LICENSE).
  - [Werkzeug](https://www.palletsprojects.com/p/werkzeug/) used under the [BSD license](https://www.palletsprojects.com/license/).
+
+[Used configuration file from AWS docs under Apache v2 license](https://github.com/awsdocs/elastic-beanstalk-samples/blob/master/configuration-files/aws-provided/security-configuration/https-redirect/python/https-redirect-python.config).
